@@ -4,7 +4,7 @@ $(() => {
     let socket = io.connect(url)
 
     const message = $('#message')
-    const chatLIst = $('#chatList')
+    const chatList = $('#chatList')
 
     $('#send').on('click', () => {
         //メッセージ入力チェック
@@ -22,6 +22,8 @@ $(() => {
     //データ受信
     socket.on('message', (data) => {
         console.log(data)
+        let chatElement = $('<p>').append(data.message)
+        chatList.prepend(chatElement)
     })
 
 })
