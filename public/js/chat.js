@@ -18,4 +18,10 @@ $(() => {
         //メッセージを空にする
         message.val('')
     })
+
+    //データ受信
+    socket.on('message', (data) => {
+        console.log(data)
+    })
+
 })
