@@ -9,7 +9,12 @@ $(() => {
     $('#send').on('click', () => {
         //メッセージ入力チェック
         if (!message.val()) return
-
+        //サーバにデータ送信
+        socket.emit('message',
+            {
+                message: message.val()
+            }
+        )
         //メッセージを空にする
         message.val('')
     })
